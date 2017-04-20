@@ -98,6 +98,7 @@
 
                 box.transition()
                     .duration(duration)
+                    .delay(10000)
                     .attr("y", function(d) { return x1(d[2]); })
                     .attr("height", function(d) { return x1(d[0]) - x1(d[2]); });
 
