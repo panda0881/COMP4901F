@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html lang="en">
   <head>
-    <title>Who are following you</title>
+    <title>Twitter tracking</title>
     <meta charset="utf-8">
     <style type="text/css">
       html {
@@ -10,7 +10,7 @@
       body {
         margin: 0;
         padding: 0;
-        background: #000000 url(static/earth/loading.gif) center center no-repeat;
+        background: #000000 url(static/earth/loading.gif) center no-repeat;
         color: #ffffff;
         font-family: sans-serif;
         font-size: 13px;
@@ -103,21 +103,8 @@
   </head>
   <body>
 
-  <div id="container"></div>
-
-  <div id="currentInfo">
-    <span class="year"><a onclick="samsung()">Samsung</a></span>
-    <span class="year"><a onclick="apple()">Apple</a></span>
-    <span class="year"><a onclick="Trump()">Trump</a></span>
-    <span class="year"><a onclick="GOT()">GOT</a></span>
-    <span class="year"><a onclick="AlphaGo()">AlphaGo</a></span>
-  </div>
-  <div id="title">
-    Examples
-  </div>
-
   <div id="buddy">
-  <div style="display: inline-block; position: relative; margin: 30px;">
+  <div style="display: inline-block; position: relative;">
   <div id="graph_div"><img id="graph"></div>
   <div id="container"></div>
   <script type="text/css">
@@ -130,173 +117,66 @@
     <link href="static/index.css" rel="stylesheet" type="text/css"/>
     <script src="static/index.js"></script>
     <script src="static/plotly-latest.min.js"></script>
-    <script src="static/popularity.js"></script>
-    <script src="static/sentiment.js"></script>
-    <script src="static/word.js"></script>
     <script type="text/javascript" src="static/third-party/Detector.js"></script>
     <script type="text/javascript" src="static/third-party/three.min.js"></script>
     <script type="text/javascript" src="static/earth/globe.js"></script>
   <script>
-
-  //Responsive layout
-  //Drawing graphs for popularity and sentiment:
-  keyWord = readCookie("KEYWORD");
-  var POPULARITY = document.getElementById('popularity');
-  var SENTIMENT = document.getElementById('sentiment');
+      keyWord = readCookie("KEYWORD");
+      var POPULARITY = document.getElementById('popularity');
+      var SENTIMENT = document.getElementById('sentiment');
 
 
-  pxarray = [];
-  pyarray = [];
-  sxarray = [];
-  syarray = [];
-  wordarray = [];
-  swordarray = [];
-
- /* plist = Popularity_Dict[keyWord+"_Popularity"];
-  slist = Sentiment_Dict[keyWord+"_Sentiment"];
-  pword = Popularity_Word_Dict[keyWord+"_Word"];
-  sword = Sentiment_Word_Dict[keyWord+"_Word"];
-  for(var i = 0; i < plist.length; ++i){
-          pxarray.push(plist[i].Time);
-          pyarray.push(plist[i].Value);
-
-  }
-
-  for(var i = 0; i < slist.length; ++i){
-          sxarray.push(slist[i].Time);
-          syarray.push(slist[i].Value);
-
-  }
-
-  for(var i = 0; i < pword.length; ++i){
-    wordarray.push(pword[i].Word);
-  }
-  for(var i = 0; i < sword.length; ++i){
-    swordarray.push(sword[i].Word);
-  }
-  var playout = {
-  title: 'Popularity',
-  xaxis: {
-  title: '',
-  titlefont: {
-    family: 'Courier New, monospace',
-    size: 18,
-    color: '#7f7f7f'
-  }
-  },
-  yaxis: {
-  title: '',
-  titlefont: {
-    family: 'Courier New, monospace',
-    size: 18,
-    color: '#7f7f7f'
-  }
-  }
-  };
-
-  var slayout = {
-  title: 'Sentiment',
-  xaxis: {
-  title: '',
-  titlefont: {
-    family: 'Courier New, monospace',
-    size: 18,
-    color: '#7f7f7f'
-  }
-  },
-  yaxis: {
-  title: '',
-  titlefont: {
-    family: 'Courier New, monospace',
-    size: 18,
-    color: '#7f7f7f'
-  }
-  }
-  };
+      pxarray = [];
+      pyarray = [];
+      sxarray = [];
+      syarray = [];
+      wordarray = [];
+      swordarray = [];
 
 
-  Plotly.plot( POPULARITY, [{
-  x: pxarray,
-  y: pyarray,
-  text:wordarray}], playout);
-
-
-  POPULARITY.on('plotly_hover', function(data){
-    var infotext = data.points.map(function(d){
-      wordlist = Popularity_Word_Dict[KEYWORD+"_Word"];
-      var word = "";
-      for(var i=0; i<wordlist.length;++i){
-        if(wordlist['Time']==d.x){
-          word = wordlist['Word'];
+      function readCookie(name) {
+        var nameEQ = name + "=";
+        var ca = document.cookie.split(';');
+        for(var i=0;i < ca.length;i++) {
+            var c = ca[i];
+            while (c.charAt(0)==' ') c = c.substring(1,c.length);
+            if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length,c.length);
         }
-      }
-      return word;
+        return null;
+    }
+
+    var globe = DAT.Globe(document.getElementById('container'), {
+    colorFn: function(label) {
+       return new THREE.Color([
+         0x0000ff, 0xff00ff, 0xff0000, 0x15adff, 0x3e66a3,
+         0x216288, 0xff7e7e, 0xff1f13, 0xc0120b, 0x5a1301, 0xffcc02,
+         0xedb113, 0x9fce66, 0x0c9a39,
+         0xfe9872, 0x7f3f98, 0xf26522, 0x2bb673, 0xd7df23,
+         0xe6b23a, 0x7ed3f7][label]);
+    }
     });
-  })
-    .on('plotly_unhover', function(data){
-
-    });
-
-
-  Plotly.plot( SENTIMENT, [{
-  x: sxarray,
-  y: syarray,
-  text:swordarray}], slayout);
-
-*/
-  function readCookie(name) {
-	var nameEQ = name + "=";
-	var ca = document.cookie.split(';');
-	for(var i=0;i < ca.length;i++) {
-		var c = ca[i];
-		while (c.charAt(0)==' ') c = c.substring(1,c.length);
-		if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length,c.length);
-	}
-	return null;
-}
-
-var globe = DAT.Globe(document.getElementById('container'), {
-colorFn: function(label) {
-   return new THREE.Color([
-     0x0000ff, 0xff00ff, 0xff0000, 0x15adff, 0x3e66a3,
-     0x216288, 0xff7e7e, 0xff1f13, 0xc0120b, 0x5a1301, 0xffcc02,
-     0xedb113, 0x9fce66, 0x0c9a39,
-     0xfe9872, 0x7f3f98, 0xf26522, 0x2bb673, 0xd7df23,
-     0xe6b23a, 0x7ed3f7][label]);
-}
-});
-
-
-var xhr = new XMLHttpRequest();
-xhr.open('GET', 'static/facebook_trump_geo.json', true);
-xhr.onreadystatechange = function(e) {
-if (xhr.readyState === 4) {
-  if (xhr.status === 200) {
-    var data = JSON.parse(xhr.responseText);
-    window.data = data;
-    globe.addData(data, {format: 'legend'});
-    globe.createPoints();
     globe.animate();
-    document.body.style.backgroundImage = 'none'; // remove loading
-  }
-}
-};
-xhr.send(null);
+    /*
 
 
+    var xhr = new XMLHttpRequest();
+    xhr.open('GET', 'static/facebook_trump_geo.json', true);
+    xhr.onreadystatechange = function(e) {
+    if (xhr.readyState === 4) {
+      if (xhr.status === 200) {
+        var data = JSON.parse(xhr.responseText);
+        window.data = data;
+        globe.addData(data, {format: 'legend'});
+        globe.createPoints();
+        globe.animate();
+        document.body.style.backgroundImage = 'none'; // remove loading
+      }
+    }
+    };
+    xhr.send(null);
+    */
   </script>
-<script type="text/javascript">
 
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-  ga('create', 'UA-54474042-1', 'auto');
-  ga('send', 'pageview');
-
-
-</script>
   </body>
 
 </html>

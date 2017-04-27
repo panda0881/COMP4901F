@@ -84,26 +84,20 @@ function spider() {
 
 function demo() {
     window.location.href = 'test.html';
-
-
 }
 
 function project() {
     window.location.href = 'index.html';
-
 }
 
 function samsung() {
     window.location.href = 'samsung.html';
-
 }
 function AlphaGo() {
     window.location.href = 'AlphaGo.html';
-
 }
 function apple() {
     window.location.href = 'apple.html';
-
 }
 
 function GOT() {
@@ -113,12 +107,9 @@ function GOT() {
 
 function Trump() {
     window.location.href = 'Trump.html';
-
 }
 function team() {
     window.location.href = 'team.html';
-
-
 }
 
 function searchKeyPress(e){

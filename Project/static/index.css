@@ -2,209 +2,54 @@ body {
     margin: 0;
 }
 
-#navBar {
-    position: fixed;
+#earth{
     width: 100%;
-    z-index: 999;
-}
-
-ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-    background-color: #f3f3f3;
-    top: 0;
-    width: 100%;
-
-}
-
-li {
-    float: left;
-}
-
-li a {
-    display: block;
-    color: #a4a4a5;
-    text-align: center;
-    padding: 12px 16px;
-    text-decoration: none;
-    font-family: Arial, Sans-serif;
-
-}
-
-li a:hover:not(.active) {
-    background-color: white;
-    font-family: Arial, Sans-serif;
-}
-
-.active {
-    background-color: #f3f3f3;
-    color: #444444;
-    font-family: Arial, Sans-serif;
-}
-
-.spider {
-    font-size: 20px;
-    color: #008CBA;
-}
-
-
-
-#index_page {
-  width: 100%;
-  height: 100%;
-}
-
-#blank {
-    width: 100%;
-    height: 100px;
-}
-
-#demo {
-    position: absolute;
-}
-
-#project {
-    position: absolute;
     height: 100%;
-}
-
-#team {
     position: absolute;
 }
 
-#search_button {
-    font-size: 30px;
-    background-color: white;
-    color: #008CBA;
-    border: 2px solid #008CBA;
-    text-align: center;
-}
-
-#search_button:hover {
-    font-size: 30px;
-    background-color: #008CBA;
-    color: white;
-
-}
-
-#search {
-    font-size: 30px;
-
-}
-
-#demo {
-
-    margin: 0, auto;
-}
-
-#input_box {
+#force_directed_graph{
+    top: 50%;
+    left: 2%;
+    width: 23%;
+    height: 30%;
     position: absolute;
-    left: 40%;
 }
 
-
-
-#worldNet2 {
-    float: right;
+#wordle{
+    top: 2%;
+    left: 75%;
+    width: 25%;
+    height: 30%;
+    position: absolute;
 }
 
-#worldNet1 {
-    float: left;
+#line_chart{
+    top: 50%;
+    left: 75%;
+    width: 25%;
+    height: 30%;
+    position: absolute;
 }
 
-#demo_page {
-  width: 100%;
+.node {
+    stroke: #fff;
+    stroke-width: 1.5px;
 }
 
-#team_page {
-  width: 100%;
+.link {
+    stroke: #fff;
+    stroke-opacity: .6;
 }
 
-img{
-  display: inline-grid;
+.node_name{
+    fill: #fff;
+    font: 10px sans-serif;
+    pointer-events: none;
 }
 
-div{
-  display: inline-block;
+text {
+  fill: #fff;
+  font: 10px sans-serif;
+  pointer-events: none;
 }
-
-.cover{
-  width: 313px;
-  margin: 20px 20px;
-  position: relative;
-}
-
-.cover > img{
-  width: 313px;
-  height: 176px;
-  position: relative;
-
-}
-
-.cover > div{
-  position: absolute;
-  top: 100px;
-  width: 313px;
-  height: 76px;
-  background:rgba(0,0,0,0.6);
-  text-align: center;
-  line-height: 76px;
-  font-size: 1.5em;
-  font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
-  color: white;
-  display: none;
-}
-
-.cover:hover > div{
-  display: block;
-}
-
-.demopage{
-  width: 100%;
-  position: relative;
-  color: black;
-  font-size: 1.5em;
-  font-weight: lighter;
-  text-align: center;
-}
-.demopage > img{
-
-
-
-}
-.demopage > span{
-  top: 100px;
-  position: relative;
-}
-
-#index .row h2{padding:0;margin:24px 0 16px;font-size:18px;color:#fff}
-#index .row p{font-size:16px;color:#777;line-height:24px}
-#index .row .col-xs-4{margin-top:36px;padding:0 30px;text-align:center}
-#index .row .icon{display:inline-block;width:33%;height:70px}
-#index .row .anything, #index .row .mutual{padding:0 40px}
-#index .row .tech .icon{background:0 0}
-#index .row .anything .icon{background:-70px 0}
-#index .row .mutual .icon{background:0 -70px}
-#index .row .industry .icon{background:-70px -70px}
-#index .row .company .icon{background:-140px 0}
-#index .row .start .icon{background:-140px -70px}
-#index .row-line.gray{margin-top:48px;overflow:hidden;height:1px;background-color:#e1e1e1}
-#index .footer .tips{margin-top:26px;font-size:16px;color:#9b9999;line-height:30px;text-align:center}
-#index .footer .actions{margin:30px 0 64px;text-align:center}
-#index .footer .actions a{margin:0 10px;color:#fff;background-color:#488fce}
-#index .footer .actions a:hover{background-color:#e5613b}
-#index .row .anything .icon,
-#index .row .company .icon,
-#index .row .industry .icon,
-#index .row .mutual .icon,
-#index .row .start .icon,
-#index .row .tech .icon{background-image:url(/images/DataJ-JMSC-Ad.jpg)}
-#page-header.nav{position:absolute;left:50%;margin-left:-585px;height:69px;background-color:transparent}
-#page-header.nav .logo{margin-top:8px}
-#page-header.nav .navbar-right{margin-top:16px}
-.banner{margin:0 auto;height:540px;color:#488fce;min-width:1170px;max-width:2000px;background:url(../images/index_banner.jpg?v=1#unsprite) center center}
-.banner .title{margin:136px auto 67px;width:753px;height:240px;background-image:url(../images/index_banner_title.png)}
-.banner .actions{margin:38px auto;width:460px;font-size:0}
-.banner .actions a.signup{margin-left:74px}

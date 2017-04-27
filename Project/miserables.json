@@ -1,0 +1,19 @@
+{
+  "nodes":[
+    {"name":"huamin","group":1},
+    {"name":"hongming","group":2},
+    {"name":"milk","group":2},
+    {"name":"andy","group":2},
+    {"name":"lila","group":2},
+    {"name":"chacky","group":3},
+    {"name":"baochen","group":3}
+  ],
+  "links":[
+    {"source":1,"target":0,"value":1},
+    {"source":2,"target":0,"value":8},
+    {"source":3,"target":0,"value":10},
+    {"source":4,"target":0,"value":1},
+    {"source":5,"target":1,"value":1},
+    {"source":6,"target":1,"value":1}
+  ]
+}
